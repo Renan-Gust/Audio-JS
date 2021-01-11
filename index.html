@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Música</title>
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="container">
+        <div class="img-music">
+            <img src="" alt="">
+        </div>
+        <div id="controls">
+            <div class="controls-images">
+                <img src="./assets/preview.svg" alt="preview">
+                <img class="pause" src="./assets/pause.svg" alt="pause">
+                <img class="play" src="./assets/play.svg" alt="Play">
+                <img src="./assets/next.svg" alt="Next">
+            </div>
+            <div class="load"></div>
+        </div>
+    </div>
+    
+    <div id="musical-list">
+        <h1>Minha lista</h1>
+        <div class="list">
+            <div class="music">
+                <audio class="guns" src="./assets/music.mp3"></audio>
+                <img onclick="selectMusic(event)" src="./assets/gunsrools.png" alt="">
+            </div>
+            <div class="music">
+                <audio class="insonia" src="./assets/Insônia.mp3"></audio>
+                <img onclick="selectMusic(event)" src="./assets/insonia.jpg" alt="">
+            </div>
+        </div>
+    </div>
+</body>
+    <script>
+            const play = document.querySelector("img.play")
+            const pause = document.querySelector("img.pause")
+
+        function selectMusic(event) {
+            Array.from(document.querySelectorAll('audio')).forEach(audioElement => {
+                audioElement.pause();
+            });
+
+            const current = event.currentTarget
+
+            const imgMusic = document.querySelector(".img-music img")
+            imgMusic.src = current.src
+
+            const music = current.parentNode.children[0]
+            music.play()
+
+            play.style.display = "none"
+            pause.style.display = "block"  
+
+            const pauseMusic = document.querySelector(".controls-images img.pause").addEventListener("click", () => {
+                music.pause()
+
+                play.style.display = "block"
+                pause.style.display = "none" 
+            })
+
+            const playMusic = document.querySelector(".controls-images img.play").addEventListener("click", () => {
+                music.play()
+
+                play.style.display = "none"
+                pause.style.display = "block" 
+            })
+
+            music.addEventListener("timeupdate", () => {
+                const time = music.currentTime
+                const timeTotal = music.duration
+
+                const duration = Math.ceil(timeTotal.toFixed() / 60)
+
+                const load = document.querySelector(".load")
+
+                load.innerHTML = "0:00" + " / " + duration + ":00"
+                console.log(time)
+            })
+        }
+    </script>
+</html>

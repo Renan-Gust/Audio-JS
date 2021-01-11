@@ -1,0 +1,89 @@
+body{
+    background: #ccc;
+}
+
+#container{
+    background: #fff;
+    height: 200px;
+    width: 60%;
+
+    border-radius: 7px;
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+}
+
+#container .img-music{
+    border-radius: 7px;
+    margin-left: 40px;
+
+    height: 200px;
+    width: 200px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#container .img-music img{
+    border-radius: 7px;
+    height: 150px;
+}
+
+#controls{
+    width: 20%;
+    margin: 0 auto;
+}
+
+#controls .controls-images{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#controls .controls-images img{
+    height: 20px;
+    cursor: pointer;
+}
+
+#controls .controls-images img.pause{
+    display: none;
+}
+
+#controls .load{
+    margin-top: 30px;
+    height: 5px;
+    background: #ccc;
+    border-radius: 3px;
+}
+
+#musical-list{
+    background: white;
+    width: 60%;
+    margin: auto;
+    border-radius: 7px;
+}
+
+#musical-list h1{
+    text-align: center;
+    margin: 40px 0;
+}
+
+#musical-list .list{
+    display: flex;
+    justify-content: center;
+}
+
+#musical-list .list .music{
+    cursor: pointer;
+}
+
+#musical-list .list .music:hover{
+    opacity: 0.5;
+}
+
+#musical-list .list .music img{
+    height: 200px;
+    margin: 0 20px;
+    border-radius: 7px;
+}
